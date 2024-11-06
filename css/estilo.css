@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:ital,wght@0,700;1,800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* https://coolors.co/db2955-ececec-191102-7b904b-f3b700 */
+    /* variáveis para a paleta de cores */
+    --cor-titulo: #191102;
+    --cor-texto: #191102; /* letra */ 
+    --cor-escura: #DB2955; /* 30% */
+    --cor-clara: #ececec; /* fundo */
+    --cor-intermediaria: #ececec; /* n sei   */
+}
+
+/*
+cores Lucimara 
+
+     variáveis para a paleta de cores 
+    
+     #230903 preto,
+    #230903 verde
+    #FFDF00 amarelo
+    #FFA600 laranja
+    #F40119 vermelho
+    #e8e9eb branco
+
+*/
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: var(--cor-texto);
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #ececec /*var(--cor-clara)*/;
+}
+
+body,
+h1,
+h2,
+p,
+figure,
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-family: Raleway, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+/* paleta_de_cores-> https://coolors.co/63a375-ececec-191102-db2955-ff7f11*/
+/* Botão Logo Link Vermelho #DB2955 -> Padrão Vermelho*/
+h1 a {
+
+    color:  #ececec/*var(--cor-clara)*/;
+    background-color: #FFA600/*var(--cor-escura)*/;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+}
+
+/* Botão Logo Link Verde #63A375 -> Click Verde*/
+h1 :hover {
+
+    color:  #ececec/*var(--cor-clara)*/;
+    background-color: #63A375/*var(--cor-escura)*/;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+}
+
+/* 
+    Botão Logo Link Verde #63A375 -> Click Verde
+
+    h1 :hover {
+        color:  #DB2955;
+        background-color: #ececec;
+        padding: 0.3rem 1rem;
+        border-radius: 4px;
+        border: 2px solid #DB2955; 
+    }
+*/
+
+a {
+    text-decoration: none;
+}
+
+header .limitador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12vh;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--cor-clara);
+    z-index: 100;
+}
+
+nav h2 a {
+    color: var(--cor-escura);
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+nav h2 a:hover,
+nav a:focus,
+.menu a:focus,
+.menu a:hover {
+    color:  #ececec/*var(--cor-clara)*/;
+    background-color: #63A375/*var(--cor-escura)*/;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+}
+
+/* Regra de lista ul */
+.menu {
+    list-style: none;
+    /* Usamos display none  para não exibir a lista  de links */
+    display: none;
+}
+
+/* Regra para formatar links contidos  na lista */
+.menu a {
+    color: #FFA600/*var(--cor-escura)*/;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.menu.aberto {
+    /* Seletor de classes combinadas 
+    Esta regra  somente  irá  funcionar  quando  As duas classes  estiverem  aplicadas  juntas   no elemento  html no caso ,n a lista  de menu /links. 
+    obs esta combinação sera possivesl  por meio  de manipulação programado co J\avaScript*/
+    /* display flex  fara  alista de link aparecer */
+    display: flex;
+    /* link em forma de coluna vcertical */
+    flex-direction: column;
+    /* Usamos  as propriedades  de posicionamento  e coodenadas  para garatir  o encaixe  correto  abaixo do titulo e da palavra Menu */
+    background-color: var(--cor-clara);
+
+    position: absolute;
+    /* Aplicamos um fundo  á  lista evitando  a dificuldade  de leitura  dos links */
+    left: 0;
+    right: 0;
+}
+
+.destaque {
+
+    height: 88vh;
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.destaque h2,
+.destaque p {
+    text-align: center;
+    color: var(--cor-clara);
+
+    animation-name: animaDestaque;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+.destaque h2 {
+    /* Função clamp(tamanho mínimo,
+                      tamanho ideal,
+                      tamanho maximo */
+    font-size: clamp(3rem, 10vw, 7rem);
+    
+
+}
+
+.destaque p {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* Animação */
+@keyframes animaDestaque {
+    from {
+        opacity: 0;
+        transform: translateY(-500px);
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+article h2 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: Raleway, sans-serif;
+    color: var(--cor-titulo);
+    
+}
+
+/* ajuste do texto da page Home */
+.front-end,
+.historia,
+.localizacao {
+    /*text-align: center;*/
+    text-align: center;
+}
+
+article p {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    
+}
+
+abbr {
+    text-decoration: none;
+}
+
+address {
+    font-style: normal;
+}
+
+.historia {
+    /*background-image: url(../imagens/fundo-madeira.jpg);*/
+    background-image: url();
+    background-attachment: fixed;
+}
+
+.historia h2 {
+    color: var(--cor-clara);
+    /*text-shadow: red 3px 3px 10px;*/
+    color: #FFA600/*var(--cor-escura)*/;
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.localizacao iframe {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.limitador {
+    width: 95vw;
+    margin: auto;
+
+}
+
+footer {
+    background-color: #ececec/*var(--cor-escura)*/;
+    color: #FFA600 /*var(--cor-clara)*/;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Regras para as página  */
+.conteudo{
+    background-color: var(--cor-intermediaria);
+    padding: 0,5rem;
+    border-radius: 8px;
+}
+.conteudo h2{
+    padding-left: 0;
+    font-size: 1.8rem;
+}
+
+table{
+    width: 80%;
+    margin: auto;
+    border: solid 1px;
+}
+table, th, td{
+    border: solid 1px
+    
+}
+caption{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+}
+th{
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    border-color: var(--cor-escura);
+    padding: 0.7rem;
+}
+td{
+    padding: 0,5rem;
+}
+td:nth-child(2){text-align: center;}
+th:last-child,td:last-child{text-align: right;}
+th:first-child{text-align: left;}
+
+tr:nth-child(odd){background-color: var(--cor-clara);}
+
+/* Pseudo elemento:befoce */
+
+td:last-child{position: relative;}
+td:last-child::before{
+    content: "R$";
+    position: absolute;
+    left: 10px;
+}
+/* a carinha de nojo da page produto Tirei */
+/*.conteudo h2::before {content: "🤢";}*/
+
+
+.galeria {
+    text-align: center;
+
+}
+.galeria img{
+    border-radius: 100%;
+    transform: scale(0.9);
+    transition: 500ms;
+    /*  filter: blur(1px) brightness(150%); */
+    height: 150px;
+    width: 150px;
+}
+/* Aplicamos  o :hover eo focus  ao seletor  de tags  "a" 
+em xvez de aplicar no "img" .Desta forma ,o acio,namento funcionará  tanto com o mouse  quanto com teclado.*/
+.galeria img:hover,.galeria img:focus{
+    transition: scale(1);
+    border-radius: 10%;
+    filter: none;
+}
+/* formatação do formulário */
+form{
+    max-width: 500px;
+    margin: auto;
+    
+}
+input, select,textarea {
+    border:none;
+    padding: 4px;
+    height: 40px;
+    border-radius: 4px;
+
+}
+textarea{
+    height: auto;
+}
+
+form div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+label{
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 30%;
+}
+/* Pseudo classe :not  permite  criar exceções para uma regera .
+Neste exesmplo ,estamos aplicando 70% 
+de largura para tudo (*) dentro do form div Exceto  label.*/
+
+form div *:not(label) {
+    width: 70%;
+}
+
+/* Botões Contatos para Buscar e Enviar dados -> Padrão Vermelho*/
+button{
+    background-color: var(--cor-escura);
+    color: var(--cor-clara);
+    border: none;
+    font-weight: bold;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Botões Contatos para Buscar e Enviar dados -> Click Verde*/
+button:hover,button:focus {
+    background-color: #63A375/*var(--cor-clara)*/;
+    color: #ececec/*var(--cor-escura)*/;
+    /*box-shadow: var(--cor-escura) 0 0 2px;*/
+}
+#cep{width:60%;
+}
+#buscar{
+    width: 39%;
+    padding: 12px;
+}
+#status{font-size: 12px;}
+
+
+
+
+@media (min-width:570px) {
+    nav h2 {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    .front-end img{
+        height: 150px;
+    }
+
+}
+
+@media (min-width:900px) {
+    .limitador {
+        max-width: 1000px;
+    }
+
+    html {
+        font-size: 18px;
+    }
+}
