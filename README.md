@@ -30,6 +30,6 @@ Vamos fazer da Multi Frutti o melhor lugar para encontrar frescor e praticidade,
 - [Briefing do Projeto Integrador Multi Frutti](https://github.com/minoru-yamanaka/HortiFrutti/blob/main/documentacao/Briefing_do_Projeto_Integrador.pdf) – Tudo o que você precisa saber antes de plantar! 🌱
 - [Desenvolvimento do Site MultiFruti.com](https://github.com/minoru-yamanaka/HortiFrutti/blob/main/documentacao/Desenvolvimento_do_Site_Multi_Frutti.pdf) – Passo a passo da colheita digital 🚜
 - [Documentação de Identidade Visual: Multi Frutti](https://github.com/minoru-yamanaka/HortiFrutti/blob/main/documentacao/Identidade_Visual_do_Site_Multi_Frutti.pdf) – A cara fresquinha da Multi Frutti! 🎨
-- [Site Multi Frutti](https://minoru-yamanaka.github.io/HortiFrutti/) – Confira nossa horta online 🌐
+- [Site Multi Frutti]( https://minoru-yamanaka.github.io/MulttiFrutti/) – Confira nossa horta online 🌐
 
 
