@@ -32,4 +32,4 @@ Vamos fazer da Multi Frutti o melhor lugar para encontrar frescor e praticidade,
 - [Documentação de Identidade Visual: Multi Frutti](https://github.com/minoru-yamanaka/HortiFrutti/blob/main/documentacao/Identidade_Visual_do_Site_Multi_Frutti.pdf) – A cara fresquinha da Multi Frutti! 🎨
 - [Site Multi Frutti](https://minoru-yamanaka.github.io/HortiFrutti/) – Confira nossa horta online 🌐
 
-# MulttiFrutti
+
