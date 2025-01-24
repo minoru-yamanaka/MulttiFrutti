@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos-Hortifruti</title>
+    <!-- Importando plugin lightbox -->
+    <link rel="stylesheet" href="lightbox/css/lightbox.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <style>
+        .conteudo h2::before {
+            content: "📰";
+        }
+
+        /* Estilo dos botões que são usados para abrir e fechar o painel do accordion */
+        .accordion {
+            background-color: #eee;
+            color: #FFA600;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: center;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        /* Adiciona uma cor de fundo ao botão se ele for clicado (adiciona a classe .active com JS), e quando você passa o mouse sobre ele (hover) */
+        .active, .accordion:hover {
+            background-color: #63A375;
+        }
+
+        /* Estilo do painel do accordion. Nota: oculto por padrão */
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none; /* Oculta o painel por padrão */
+            overflow: hidden;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="limitador">
+            <h1><a href="index.html">Multi Frutti</a></h1>
+            <nav>
+                <h2><a href="">Menu &equiv;</a></h2>
+                <ul class="menu ">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produtos.html">Catálogo</a></li>
+                    <li><a href="servicos.html">Notícias</a></li>
+                    <li><a href="contato.html">Contatos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="limitador conteudo">
+            <h2>Notícias</h2>
+            <p>Fique por dentro das últimas novidades da Multi Frutti! Nesta seção, compartilhamos atualizações sobre novos produtos, eventos e tendências do setor de hortifrutigranjeiros.</p>
+            <p>Acompanhe nossas novidades para estar sempre atualizado e aproveite ao máximo o que oferecemos para o seu negócio. Para mais informações, entre em contato conosco.</p>
+            <p>Obrigado por acompanhar!</p>
+            <figure class="galeria">
+
+                <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
+                    <img src="imagens/01.jpg" alt=""></a>
+
+                <a data-title="Design gráfico impactante" data-lightbox="fotos" href="imagens/02.jfif"><img src="imagens/02.jfif" alt=""> </a>
+
+                <a data-title="Venda e convencimento" data-lightbox="fotos" href="imagens/03.jfif"><img
+                        src="imagens/03.jfif" alt=""></a>
+
+                <a data-title="Prepara-se para o mercado" data-lightbox="fotos" href="imagens/04.jpg"><img
+                        src="imagens/04.jpg" alt=""></a>
+
+            </figure>
+            <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
+
+            <!-- -->
+
+            <div class="frutas">
+                <button class="accordion">Frutas</button>
+                    <div class="panel">
+                        <figure class="galeria">
+                            <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
+                                <img src="imagens/01.jpg" alt=""></a>
+                        </figure>
+                        <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
+                    </div>
+            
+                    <div class="frutas">
+                        <button class="accordion">Frutas</button>
+                            <div class="panel">
+                                <figure class="galeria">
+                                    <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
+                                        <img src="imagens/01.jpg" alt=""></a>
+                                </figure>
+                                <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
+                            </div>  
+            
+                            <div class="frutas">
+                                <button class="accordion">Frutas</button>
+                                    <div class="panel">
+                                        <figure class="galeria">
+                                            <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
+                                                <img src="imagens/01.jpg" alt=""></a>
+                                        </figure>
+                                        <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
+                                    </div>
+    </main>
+
+    <footer>
+        <p>
+            Multi Frutti é um site fictício desenvolvido para fins educacionais &copy;. <b>Senac Tito</b> - <time>2024</time>.
+            Para mais informações sobre como protegemos seus dados, consulte nossa <a href="privacidade.html">Política de Privacidade</a>.
+        </p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="lightbox/js/lightbox.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+    const accordions = document.querySelectorAll(".accordion");
+
+    accordions.forEach((accordion) => {
+        accordion.addEventListener("click", function () {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
