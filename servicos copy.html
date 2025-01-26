@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/estilo.css">
 
     <style>
-        .conteudo h2::before {
-            content: "📰";
-        }
-
-        /* Estilo dos botões que são usados para abrir e fechar o painel do accordion */
         .accordion {
             background-color: #eee;
             color: #FFA600;
@@ -27,20 +22,28 @@
             transition: 0.4s;
             font-weight: 800;
             font-size: 1.5rem;
+
+            
         }
 
-        /* Adiciona uma cor de fundo ao botão se ele for clicado (adiciona a classe .active com JS), e quando você passa o mouse sobre ele (hover) */
-        .active, .accordion:hover {
-            background-color: #63A375;
+        .accordion[aria-expanded="true"] {
+            
+            background-color: #eee;
+            color: #FFA600;
         }
 
-        /* Estilo do painel do accordion. Nota: oculto por padrão */
-        .panel {
-            padding: 0 18px;
-            background-color: white;
-            display: none; /* Oculta o painel por padrão */
-            overflow: hidden;
+        .accordion[aria-expanded="false"] {
+            
+            background-color: #eee;
+            color: #FFA600;
         }
+
+
+        .accordion[aria-expanded="false"]:hover {
+            background-color: #63A375/*var(--cor-escura)*/;
+            color: #eee;
+        }
+
         
     </style>
 
@@ -86,18 +89,18 @@
 
             <!-- -->
 
-            <div class="frutas">
-                <button class="accordion">Frutas</button>
+            <div>
+                <button class="accordion">Novidades 01</button>
                     <div class="panel">
                         <figure class="galeria">
                             <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
                                 <img src="imagens/01.jpg" alt=""></a>
                         </figure>
                         <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
-                    </div>
+                </div>
             
-                    <div class="frutas">
-                        <button class="accordion">Frutas</button>
+                    <div>
+                        <button class="accordion">Novidades 02</button>
                             <div class="panel">
                                 <figure class="galeria">
                                     <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
@@ -106,8 +109,8 @@
                                 <p>A Multi Frutti continua a se esforçar para fornecer o melhor em produtos frescos e serviços de alta qualidade. Estamos empolgados com essas novidades e com o impacto positivo que elas terão para você e para o seu negócio. Fique atento às nossas atualizações e não hesite em nos contatar para mais informações sobre como podemos ajudar a aprimorar o seu sucesso!</p>
                             </div>  
             
-                            <div class="frutas">
-                                <button class="accordion">Frutas</button>
+                            <div>
+                                <button class="accordion">Novidades 03</button>
                                     <div class="panel">
                                         <figure class="galeria">
                                             <a data-title="Desenvolvimento de sites" data-lightbox="fotos" href="imagens/01.jpg">
@@ -127,20 +130,21 @@
     <script src="lightbox/js/lightbox.min.js"></script>
     <script src="js/menu.js"></script>
     <script>
-    const accordions = document.querySelectorAll(".accordion");
+        const accordions = document.querySelectorAll(".accordion");
 
-    accordions.forEach((accordion) => {
-        accordion.addEventListener("click", function () {
-            this.classList.toggle("active");
-            const panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
+        accordions.forEach((accordion) => {
+            accordion.addEventListener("click", function () {
+                const panel = this.nextElementSibling;
+                const isOpen = this.getAttribute("aria-expanded") === "true";
+
+                // Alterna o estado de aria-expanded
+                this.setAttribute("aria-expanded", !isOpen);
+
+                // Mostra ou oculta o painel
+                panel.style.display = isOpen ? "none" : "block";
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
