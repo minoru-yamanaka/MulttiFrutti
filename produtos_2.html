@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Hortifruti</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .card.selecionado {
+            background-color: #63A375;
+            border-color: darkseagreen;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .botoes {
+            margin-top: 20px;
+        }
+
+        .btn-comprar {
+            background: #FFA600;
+            color: white;
+        }
+
+        .btn-redefinir {
+            background: #DB2955;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .whatsapp-sticky {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #63A375;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgb(0, 0, 0);
+        }
+
+        .whatsapp-sticky img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .whatsapp-sticky:hover {
+            background-color: #7bd19f;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .contador button {
+            background-color: #FFA600;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contador span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="limitador">
+            <h1><a href="index.html">Multi Frutti</a></h1>
+        </div>
+    </header>
+
+    <main>
+        <article class="limitador conteudo">
+            <h2>🛒 Catálogo</h2>
+            <h1>Nossos Produtos</h1><br>
+
+            <!-- Produtos em Cards -->
+            <div class="container">
+                <div class="card" data-preco="7.50">
+                    <div>Maçã</div>
+                    <div>Preço: R$ <span class="preco">7.50</span></div>
+                    <div class="contador">
+                        <button class="btn-menos">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="btn-mais">+</button>
+                    </div>
+                </div>
+                <div class="card" data-preco="5.00">
+                    <div>Banana</div>
+                    <div>Preço: R$ 5,00</div>
+                    <div class="contador">
+                        <button class="btn-menos">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="btn-mais">+</button>
+                    </div>
+                </div>
+                <div class="card" data-preco="12.90">
+                    <div>Abacaxi</div>
+                    <div>Preço: R$ 12,90</div>
+                    <div class="contador">
+                        <button class="btn-menos">-</button>
+                        <span class="quantidade">0</span>
+                        <button class="btn-mais">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="botoes">
+                <button class="btn-comprar" id="btnComprar">Comprar</button>
+                <button class="btn-redefinir" id="btnRedefinir">Redefinir</button>
+                <div id="resultado" class="resultado">Total: R$ 0,00</div>
+                <a id="whatsappLink" href="#" target="_blank">Finalizar no WhatsApp</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Botão do WhatsApp -->
+    <a href="#" class="whatsapp-sticky" id="whatsappSticky" target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=16466&format=png&color=FFFFFF" alt="whatsapp"/>
+        Whatsapp
+    </a>
+
+    <script>
+        let total = 0;
+
+        // Adicionar eventos aos botões de quantidade
+        document.querySelectorAll(".card").forEach(card => {
+            const btnMais = card.querySelector(".btn-mais");
+            const btnMenos = card.querySelector(".btn-menos");
+            const quantidadeSpan = card.querySelector(".quantidade");
+            let quantidade = 0;
+            const preco = parseFloat(card.getAttribute("data-preco"));
+
+            btnMais.addEventListener("click", function() {
+                quantidade++;
+                quantidadeSpan.textContent = quantidade;
+                calcularTotal();
+            });
+
+            btnMenos.addEventListener("click", function() {
+                if (quantidade > 0) {
+                    quantidade--;
+                    quantidadeSpan.textContent = quantidade;
+                    calcularTotal();
+                }
+            });
+        });
+
+        // Calcular o total
+        function calcularTotal() {
+            total = 0;
+            document.querySelectorAll(".card").forEach(card => {
+                let quantidade = parseInt(card.querySelector(".quantidade").textContent);
+                let preco = parseFloat(card.getAttribute("data-preco"));
+                total += quantidade * preco;
+            });
+
+            document.getElementById("resultado").textContent = "Total: R$ " + total.toFixed(2);
+            document.getElementById("whatsappLink").href = `https://wa.me/?text=Total%20da%20compra:%20R$%20${total.toFixed(2)}`;
+        }
+
+        // Comprar
+        document.getElementById("btnComprar").addEventListener("click", function() {
+            calcularTotal();
+            alert("Compra realizada! Total: R$ " + total.toFixed(2));
+        });
+
+        // Redefinir
+        document.getElementById("btnRedefinir").addEventListener("click", function() {
+            document.querySelectorAll(".quantidade").forEach(qtd => qtd.textContent = "0");
+            total = 0;
+            document.getElementById("resultado").textContent = "Total: R$ 0,00";
+            document.getElementById("whatsappLink").href = "#";
+        });
+    </script>
+</body>
+
+</html>
