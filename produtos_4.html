@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Frutas</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; text-align: center; }
+        .contador { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .selecionado { background-color: #d3ffd3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" data-preco="7.50" data-preco-base="7.50">
+            <div>Maçã</div>
+            <div>Preço: R$ <span class="preco">7.50</span></div>
+            <div class="contador">
+                <button class="btn-decremento">-</button>
+                <span class="quantidade">1</span>
+                <button class="btn-incremento">+</button>
+            </div>
+        </div>
+        <!-- Adicione mais produtos conforme necessário -->
+    </div>
+    
+    <button id="btnRedefinir">Redefinir</button>
+    <button id="btnComprar">Comprar</button>
+    <p id="resultado"></p>
+    <a id="whatsappLink" target="_blank">Finalizar no WhatsApp</a>
+
+    <script src="js/menu.js"></script>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const btnRedefinir = document.getElementById('btnRedefinir');
+        const btnComprar = document.getElementById('btnComprar');
+        const resultado = document.getElementById('resultado');
+        const telefoneDoWhatsapp = "5511959473402";
+        const whatsappLink = document.getElementById("whatsappLink");
+
+        cards.forEach(card => {
+            const btnIncremento = card.querySelector('.btn-incremento');
+            const btnDecremento = card.querySelector('.btn-decremento');
+            const quantidade = card.querySelector('.quantidade');
+            const preco = card.querySelector('.preco');
+            const precoBase = parseFloat(card.dataset.precoBase); // Mantém o preço original
+
+            btnIncremento.addEventListener('click', () => {
+                let qtd = parseInt(quantidade.textContent);
+                qtd++;
+                quantidade.textContent = qtd;
+                preco.textContent = (precoBase * qtd).toFixed(2);
+                card.dataset.preco = (precoBase * qtd).toFixed(2);
+            });
+
+            btnDecremento.addEventListener('click', () => {
+                let qtd = parseInt(quantidade.textContent);
+                if (qtd > 1) {
+                    qtd--;
+                    quantidade.textContent = qtd;
+                    preco.textContent = (precoBase * qtd).toFixed(2);
+                    card.dataset.preco = (precoBase * qtd).toFixed(2);
+                }
+            });
+
+            card.addEventListener("click", () => {
+                card.classList.toggle("selecionado");
+            });
+        });
+
+        btnRedefinir.addEventListener("click", () => {
+            cards.forEach(card => {
+                card.style.display = "";
+                card.classList.remove("selecionado");
+                const quantidade = card.querySelector('.quantidade');
+                const preco = card.querySelector('.preco');
+                const precoBase = parseFloat(card.dataset.precoBase);
+                quantidade.textContent = '1';
+                preco.textContent = precoBase.toFixed(2);
+                card.dataset.preco = precoBase.toFixed(2);
+            });
+            resultado.innerText = "";
+            whatsappLink.href = "#";
+        });
+
+        btnComprar.addEventListener("click", () => {
+            let precoTotal = 0;
+            let listaProdutos = [];
+
+            cards.forEach(card => {
+                if (!card.classList.contains("selecionado")) {
+                    card.style.display = "none";
+                } else {
+                    const nomeProduto = card.querySelector("div:first-child").textContent;
+                    const precoProduto = parseFloat(card.dataset.preco);
+                    listaProdutos.push(`${nomeProduto}: R$ ${precoProduto.toFixed(2)}`);
+                    precoTotal += precoProduto;
+                }
+            });
+
+            resultado.innerText = `Preço Total: R$ ${precoTotal.toFixed(2)}`;
+            const mensagem = encodeURIComponent(`Olá, gostaria de comprar os seguintes produtos:\n\n${listaProdutos.join("\n")}\n\nTotal: R$ ${precoTotal.toFixed(2)}`);
+            whatsappLink.href = `https://wa.me/${telefoneDoWhatsapp}?text=${mensagem}`;
+        });
+    </script>
+</body>
+</html>
