@@ -333,6 +333,7 @@ td:last-child::before{
     text-align: center;
 
 }
+
 .galeria img{
     border-radius: 100%;
     transform: scale(0.9);
@@ -341,6 +342,7 @@ td:last-child::before{
     height: 150px;
     width: 150px;
 }
+
 /* Aplicamos  o :hover eo focus  ao seletor  de tags  "a" 
 em xvez de aplicar no "img" .Desta forma ,o acio,namento funcionará  tanto com o mouse  quanto com teclado.*/
 .galeria img:hover,.galeria img:focus{

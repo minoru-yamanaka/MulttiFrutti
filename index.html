@@ -6,6 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Multi Frutti</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <style>
+
+        /* Estilos do Carrossel */
+        .galeria {
+            text-align: center;
+
+            
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Botões de navegação */
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #FFA600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-prev:hover, .carousel-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .galeria_index{
+            align-items: center;
+            height: 450px;
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        article h2{
+            color: #FFA600;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -45,6 +115,28 @@
             Entre em contato conosco e descubra como podemos ajudar a elevar a qualidade dos seus pratos e a satisfação dos seus clientes.</p> <br><br>
             </p>
 
+            <!-- Carrosel de imagens -->
+
+            <article class="galeria_index">
+                <h2>Galeria de Fotos</h2>
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <div class="carousel-item active">
+                            <img src="https://picsum.photos/800/400?random=1&fruit" alt="Imagem 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://picsum.photos/800/400?random=2&fruit" alt="Imagem 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://picsum.photos/800/400?random=3&fruit" alt="Imagem 3">
+                        </div>
+                    </div>                    
+                    <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+            </article>
+            
+
         <!--
             <figure>
                  <img src="imagens/tecnologias.png" alt="Longotipos das linguagens HTML,CSS, JS"> 
@@ -80,6 +172,19 @@
     </footer>
 
     <script src="js/menu.js"></script>
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-item');
+            const totalSlides = slides.length;
+            
+            currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+            
+            // Atualiza a posição do carrossel
+            document.querySelector('.carousel-images').style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
 
 </body>
 
