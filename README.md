@@ -23,7 +23,7 @@ Vamos fazer da Multi Frutti o melhor lugar para encontrar frescor e praticidade,
 **Vamos colher os frutos dessa ideia?** 🍊🌱
 
 - [Apresentação do Protótipo](https://www.figma.com/proto/2IR6C3We5o2AeFpOUIFJi0/Prototype_Multu_Frutti_01_Rascunho?t=ld0MEyHIAqaiOQPh-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-234&starting-point-node-id=1%3A2) – Um esboço suculento do que está por vir! 🖥️
-- [Apresentação do GuideLine](https://www.figma.com/proto/Ep4Mh9gysB5Ck12VSItqph/Simple-Brand-Guideline-Template-(Community)?node-id=203-559&node-type=FRAME&t=8fAPY09KXjvyUsPr-1&scaling=contain&content-scaling=fixed&page-id=203%3A2) – Nossa receita secreta de branding 🍋
+- [Apresentação do GuideLine](https://github.com/minoru-yamanaka/MulttiFrutti/blob/main/documentacao/Apresentacao_do%20_GuideLine.pdf) – Nossa receita secreta de branding 🍋
 - [Projeto do Protótipo](https://www.figma.com/design/2IR6C3We5o2AeFpOUIFJi0/Prototype_Multu_Frutti_01_Rascunho?t=ld0MEyHIAqaiOQPh-0) – Tudo fresquinho, direto do forno digital 🔥
 - [Mapa do site](https://github.com/minoru-yamanaka/MulttiFrutti/blob/main/documentacao/mapa.png) – Navegue pelo terreno fértil do nosso projeto 🌍
 - [Análise de Mercado do MultiFrutti.com](https://github.com/minoru-yamanaka/MulttiFrutti/blob/main/documentacao/Analise_de_Mercado_Desenvolvimento_Multi_Frutti.pdf) – Explorando o solo do mercado hortifruti 📊
