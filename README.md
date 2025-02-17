@@ -33,3 +33,4 @@ Vamos fazer da Multi Frutti o melhor lugar para encontrar frescor e praticidade,
 - [Site Multi Frutti]( https://minoru-yamanaka.github.io/MulttiFrutti/) – Confira nossa horta online 🌐
 
 
+![aponte](qr.png)
